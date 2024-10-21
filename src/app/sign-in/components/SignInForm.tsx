@@ -3,9 +3,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { auth } from "@/app/firebase/config";
 import styles from "./SignInForm.module.css";
-import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Link from "next/link";
-import { IUser } from "@/shared/interfaces/IUser.interface";
+import { IUser } from "@/app/shared/interfaces/IUser.interface";
 import { useRouter } from "next/navigation";
 
 
@@ -13,7 +13,7 @@ const SignInForm = () => {
 
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm<IUser>();
-    const router = useRouter()
+    const router = useRouter();
 
     //Log
     const [signInUser] = useSignInWithEmailAndPassword(auth);
@@ -34,7 +34,7 @@ const SignInForm = () => {
 
     return (
         <section className={styles.auth}>
-            <h1>Get Started!</h1>
+            <h1>Welcome again!</h1>
 
             <form onSubmit={handleSubmit(handleSignUp)}>
                 <input type="text"
@@ -45,7 +45,7 @@ const SignInForm = () => {
                     placeholder="Type a password"
                     {...register("password")} />
 
-                <button type="submit">Sign Up</button>
+                <button type="submit">Sign In</button>
 
                 <Link href={"/sign-up"}>You don't have an account? Create one</Link>
                 

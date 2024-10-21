@@ -1,8 +1,10 @@
-import styles from "./page.module.css";
+import HomeComponent from "./home/components/Home";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-    </div>
+
+   return (
+    <>
+    <HomeComponent/>
+    </>
   );
 }

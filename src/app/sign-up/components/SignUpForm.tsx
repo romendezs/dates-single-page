@@ -3,8 +3,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { auth } from "@/app/firebase/config";
 import styles from "./SignUpForm.module.css";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { IUser } from "@/shared/interfaces/IUser.interface";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { IUser } from "@/app/shared/interfaces/IUser.interface";
+import Link from "next/link";
 
 
 
@@ -15,7 +16,7 @@ const SignUpForm = () => {
 
     //Log
     const [createUser] = useCreateUserWithEmailAndPassword(auth);
-    const handleSignUp = async (data:IUser) => {
+    const handleSignUp = async (data: IUser) => {
         try {
 
             const response = await createUser(data.email, data.password);
@@ -38,11 +39,16 @@ const SignUpForm = () => {
                     placeholder="Type your email"
                     {...register("email", { pattern: /^\S+@\S+$/i })} />
 
+                {
+                    errors.email && <span>Email must be valid</span>
+                }
+
                 <input type="password"
                     placeholder="Type a password"
                     {...register("password")} />
 
                 <button type="submit">Sign Up</button>
+                <Link href={"/sign-in"}> Already have an account? Log In</Link>
             </form>
         </section>
     );

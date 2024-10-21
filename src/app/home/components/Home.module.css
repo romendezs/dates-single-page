@@ -1,0 +1,74 @@
+.datesForm{
+    display: flex;
+    flex-flow: column wrap;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.datesForm h1{
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.datesForm form{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    /* background-color: var(--second-color); */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 2rem;
+    width: 40%;
+}
+
+.datesForm input:hover{
+    background-color: var(--third-color);
+    border: 1px solid var(--third-color);
+}
+
+.datesForm input:active{
+    border: 1px solid var(--third-color);
+}
+
+.datesForm input{
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 90%;
+    border: 1px solid #ccc;
+}
+
+.datesForm textarea{
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 90%;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+.datesForm button{
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--third-color);
+    background: var(--third-color);
+    cursor: pointer;
+}
+
+.datesForm button:hover{
+    background-color: var(--primary-color);
+    color: #fff;
+    border: 1px solid var(--primary-color);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.submit{
+    width: 5rem;
+}
+
+.dates{
+    width: 10rem;
+}
