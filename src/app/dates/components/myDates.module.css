@@ -1,10 +1,63 @@
+@import url(/src/global.css);
+
 .container{
     height: 100vh;
     display: flex;
+    flex-flow: column wrap;
     justify-content: center;
     align-items: center;
 }
 
-.container table{
+.container div{
+    padding: 4rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    margin-bottom: 4rem;
 
+}
+
+.container table{
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.container td{
+    border: 2px solid #ccc;
+    padding: 1rem;
+}
+
+.container th{
+    border: 2px solid var(--second-color);
+    padding: 1rem;
+}
+
+.Pacient{
+    width: 8rem;
+}
+
+.Date{
+    width: 8rem;
+}
+
+.Purpose{
+    width: 15rem;
+}
+
+.newDate{
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--third-color);
+    background: var(--third-color);
+    cursor: pointer;
+    width: 10rem;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+}
+
+.newDate:hover{
+    background-color: var(--primary-color);
+    color: #fff;
+    border: 1px solid var(--primary-color);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

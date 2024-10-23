@@ -67,9 +67,7 @@ const HomeComponent = () => {
                 <button className={buttonClass} type="submit">Send</button>
             </form>
 
-            <button className={myDatesClass}>
-                <Link href={"/dates"}>View all my dates</Link>
-            </button>
+                <Link className={styles.dates} href={"/dates"}>View all my dates</Link>
         </section>
     );
 };

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "./myDates.module.css";
+import Link from "next/link";
 
 const retrievingData = async (): Promise<QuerySnapshot<DocumentData>> => {
 
@@ -44,24 +45,27 @@ const MyDates = () => {
 
   return (
     <section className={styles.container}>
+      <div>
       <table>
         <thead>
           <tr>
-            <th>Pacient</th>
-            <th>Date</th>
-            <th>Purpose</th>
+            <th className={styles.Pacient}>Pacient</th>
+            <th className={styles.Date}>Date</th>
+            <th className={styles.Purpose}>Purpose</th>
           </tr>
         </thead>
         <tbody>
           {dates.map((doc, index) => (
             <tr key={index}>
-              <td>{doc.Pacient}</td>
-              <td>{doc.Date}</td>
-              <td>{doc.Purpose}</td>
+              <td className={styles.Pacient}>{doc.Pacient}</td>
+              <td className={styles.Date}>{doc.Date}</td>
+              <td className={styles.Purpose}>{doc.Purpose}</td>
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
+      <Link className ={styles.newDate} href="/">Create a new date</Link>
     </section>
   );
 };

@@ -42,7 +42,7 @@
     border: 1px solid #ccc;
 }
 
-.datesForm textarea{
+.datesForm form textarea{
     padding: 0.5rem;
     border-radius: 5px;
     width: 90%;
@@ -50,8 +50,10 @@
     resize: none;
 }
 
+
 .datesForm button{
     padding: 0.5rem;
+    width: 5rem;
     border-radius: 5px;
     border: 1px solid var(--third-color);
     background: var(--third-color);
@@ -65,10 +67,23 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.submit{
-    width: 5rem;
+.dates{
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--third-color);
+    background: var(--third-color);
+    cursor: pointer;
+    width: 10rem;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
 }
 
-.dates{
-    width: 10rem;
+.dates:hover{
+    background-color: var(--primary-color);
+    color: #fff;
+    border: 1px solid var(--primary-color);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+
