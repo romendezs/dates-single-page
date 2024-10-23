@@ -1,13 +1,14 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "@/app/firebase/config";
+import { auth, db } from "@/app/firebase/config";
 import { useForm } from "react-hook-form";
 import { IUser } from "@/app/shared/interfaces/IUser.interface";
 import { CreateDate } from "../interfaces/CreateDate";
 import styles from "./Home.module.css";
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
+import { addDoc, collection} from "firebase/firestore";
 
 
 const montserrat = Montserrat({
@@ -20,7 +21,7 @@ const HomeComponent = () => {
     const [user] = useAuthState(auth);
     const router = useRouter();
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<CreateDate>();
+    const { register, handleSubmit, formState: { errors } } = useForm<CreateDate>();
 
     const userSession = sessionStorage.getItem("user");
 
@@ -29,12 +30,24 @@ const HomeComponent = () => {
         router.push("/sign-in");
     }
 
+
     const buttonClass = `${montserrat.className} ${styles.submit}`;
     const myDatesClass = `${montserrat.className} ${styles.dates}`;
     
+    const sendData = async(data:CreateDate)=>{
+        await addDoc(collection(db,"dates"),{
+            Pacient : data.pacient,
+            Date: data.date,
+            Purpose: data.purpose,
+            User: auth.currentUser?.email,
+            CreatedAt: Date()
+        });
+
+    };
+
     return (
         <section className={styles.datesForm}>
-            <form>
+            <form onSubmit={handleSubmit(sendData)}>
                 <h1>Create a new date</h1>
                 <input type="text"
                     className={montserrat.className}
@@ -55,7 +68,7 @@ const HomeComponent = () => {
             </form>
 
             <button className={myDatesClass}>
-                <Link href={"#"}>View all my dates</Link>
+                <Link href={"/dates"}>View all my dates</Link>
             </button>
         </section>
     );
