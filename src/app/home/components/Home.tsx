@@ -9,6 +9,7 @@ import styles from "./Home.module.css";
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
 import { addDoc, collection} from "firebase/firestore";
+import Navbar from "@/app/shared/components/navbar";
 
 
 const montserrat = Montserrat({
@@ -46,6 +47,8 @@ const HomeComponent = () => {
     };
 
     return (
+        <>
+        <Navbar/>
         <section className={styles.datesForm}>
             <form onSubmit={handleSubmit(sendData)}>
                 <h1>Create a new date</h1>
@@ -69,6 +72,7 @@ const HomeComponent = () => {
 
                 <Link className={styles.dates} href={"/dates"}>View all my dates</Link>
         </section>
+        </>
     );
 };
 
