@@ -28,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={styles.navbar }>
       <p>Hey there!!</p>
       <button onClick={handleClick}>Logout</button>
     </nav>
